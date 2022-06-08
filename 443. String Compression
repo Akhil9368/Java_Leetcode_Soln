@@ -1,0 +1,23 @@
+class Solution {
+    public int compress(char[] ch) {
+        int i=0;
+        int n=ch.length;
+        int k=0;
+        int val=0;
+        while(i<n){
+            int j=i;
+           while(j<n && ch[i]==ch[j]){
+               j++;
+              }
+            ch[k++]=ch[i];
+            if(j-i>1){
+               val=j-i;
+                for(char cho :Integer.toString(val).toCharArray()){
+                    ch[k++]=cho;
+                }
+            }
+            i=j;
+        }
+        return k;
+    }
+}
