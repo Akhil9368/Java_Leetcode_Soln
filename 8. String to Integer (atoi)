@@ -1,0 +1,36 @@
+class Solution {
+    public int myAtoi(String str) {
+        int length =  str.length();
+        int index=0;
+        int sign = 1;
+        int r=0;
+        if(length == 0){
+            return 0;
+        }
+        while(index<length && str.charAt(index)==' '){
+            index++;
+        }
+        if(length==index){
+            return 0;
+        }
+        if(str.charAt(index) =='-' && index<length){
+            index++;
+            sign =-1;
+        }
+        else{
+            if(str.charAt(index) == '+' && index<length){
+                index++;
+                sign =1;
+            }
+        }
+            while(index<length && Character.isDigit(str.charAt(index))){
+                int digit = str.charAt(index)-'0';
+                if(r>Integer.MAX_VALUE/10 || (r==Integer.MAX_VALUE/10 && digit>Integer.MAX_VALUE %10)){
+                        return sign==1?Integer.MAX_VALUE : Integer.MIN_VALUE;
+                   }
+               r = r*10+digit;
+                index++;
+            }
+        return sign*r;
+    }
+}
