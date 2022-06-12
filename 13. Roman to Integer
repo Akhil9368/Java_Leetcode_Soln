@@ -1,0 +1,51 @@
+class Solution {
+    public int romanToInt(String s) {
+        int integer=0;
+      
+        for(int i=0;i<s.length();i++){
+            char change =s.charAt(i);
+            switch(change){
+                case 'I':
+                    integer+=1;
+                    break;
+                case 'V':
+                    integer+=5;
+                    break;
+                case 'X':
+                    integer+=10;
+                    break;
+                case 'L':
+                    integer+=50;
+                    break;
+                case 'C':
+                    integer+=100;
+                    break;
+            
+                case 'D':
+                    integer+=500;
+                    break;
+                case 'M':
+                    integer+=1000;
+                    break;
+            }
+        }
+        if(s.contains("IV")){
+            integer-=2;
+        }
+        if(s.contains("IX")){
+            integer-=2;
+        }
+        if(s.contains("XC")){
+            integer-=20;
+        }
+        if(s.contains("XL"))
+            integer-=20;
+        if(s.contains("CD")){
+            integer-=200;
+        }
+        if(s.contains("CM")){
+            integer-=200;
+        }
+        return integer;
+    }
+}
