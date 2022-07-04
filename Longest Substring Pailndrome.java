@@ -31,7 +31,7 @@ public class palindromic_substring {
             }
         }
         for (String s : set)
-              {if(s.length() ==5){
+              {if(s.length() == max){
                       System.out.println(s);
                   }
               }
